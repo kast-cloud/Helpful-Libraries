@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MimeTypes" Version="2.1.1" />
-    <PackageReference Include="Moq.AutoMock" Version="2.3.0" />
+    <PackageReference Include="MimeTypes" />
+    <PackageReference Include="Moq.AutoMock" />
     <PackageReference Include="OrchardCore.Admin.Abstractions" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Alias" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Data.Abstractions" Version="$(OrchardCoreVersion)" />
