@@ -38,10 +38,10 @@ namespace YesSql
             DbTransaction transaction = null)
         {
             transaction ??= await session.BeginTransactionAsync();
-            var query = GetQuery(sql, transaction, session, parameters);
+            var query = GetQuery(sql, transaction, session);
 
             return queryExecutor == null
-                ? await transaction.Connection.QueryAsync<TRow>(query, transaction: transaction)
+                ? await transaction.Connection.QueryAsync<TRow>(query, parameters, transaction)
                 : await queryExecutor((query, transaction));
         }
 
@@ -71,14 +71,13 @@ namespace YesSql
         private static string GetQuery(
             string sql,
             DbTransaction transaction,
-            ISession session,
-            IDictionary<string, object> parameters)
+            ISession session)
         {
             var parserResult = SqlParser.TryParse(
                 sql,
                 TransactionSqlDialectFactory.For(transaction),
                 session.Store.Configuration.TablePrefix,
-                parameters,
+                parameters: null,
                 out var query,
                 out var messages);
 
@@ -106,7 +105,10 @@ namespace YesSql
             var dialect = session.Store.Configuration.SqlDialect;
             var content = session.Store.Configuration.ContentSerializer.Serialize(entity);
 
-            var sql = @$"UPDATE {dialect.QuoteForTableName(session.Store.Configuration.TablePrefix + session.Store.Configuration.TableNameConvention.GetDocumentTable())}
+            var tableName = session.Store.Configuration.TablePrefix +
+                session.Store.Configuration.TableNameConvention.GetDocumentTable();
+
+            var sql = @$"UPDATE {dialect.QuoteForTableName(tableName)}
                 SET {dialect.QuoteForColumnName("Content")} = @Content
                 WHERE {dialect.QuoteForColumnName("Id")} = @Id";
 
@@ -192,10 +194,6 @@ namespace YesSql
         "Design",
         "CA1032:Implement standard exception constructors",
         Justification = "The exception is used in a very particular single case.")]
-    [SuppressMessage(
-        "Major Code Smell",
-        "S3925:\"ISerializable\" should be implemented correctly",
-        Justification = "There's no need to make this class serializable.")]
     public class RawQueryException : DbException
     {
         public override IDictionary Data { get; }
