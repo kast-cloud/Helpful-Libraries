@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**;Tests\**</DefaultItemExcludes>
+     <NoWarn>$(NoWarn);CS1573</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,6 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Libraries\Utilities\Sha256Helper.cs" />
+    <Compile Remove="Libraries\Utilities\RNGCryptoServiceProviderExtensions.cs" />
     <Compile Remove="Libraries\DateTime\NodaTimeExtensions.cs" />
     <Compile Remove="Libraries\Utilities\OrchardCoreBuilderExtensions.cs" />
   </ItemGroup>
