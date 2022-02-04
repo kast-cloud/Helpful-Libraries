@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Lucene.Net" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="16.10.56" />
     <PackageReference Include="MimeTypes" />
     <PackageReference Include="Moq.AutoMock" />
     <PackageReference Include="OrchardCore.Admin.Abstractions" Version="$(OrchardCoreVersion)" />
