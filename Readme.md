@@ -8,20 +8,7 @@ Various libraries that can be handy when developing for Orchard Core CMS, to be 
 
 Do you want to quickly try out this project and see it in action? Check it out in our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) full Orchard Core solution and also see our other useful Orchard Core-related open-source projects!
 
-Note that this module has an Orchard 1 version in the [dev-orchard-1 branch](https://github.com/Lombiq/Helpful-Libraries/tree/dev-orchard-1).
-
-
-## Includes:
-
-- Contents Libraries
-- DateTime Libraries with TimeZone conversion
-- Dependency Injection Libraries
-- Localization Libraries
-- Method Provider Libraries
-- MVC Libraries
-- Resource Management Libraries with Resource Filter feature
-- Utilities
-- RestEase DI helper
+Note that this project has an Orchard 1 version in the [dev-orchard-1 branch](https://github.com/Lombiq/Helpful-Libraries/tree/dev-orchard-1).
 
 
 ## Documentation
@@ -37,14 +24,19 @@ The module consists of the following independent libraries (all in their own fea
 - [Method Provider Libraries](Lombiq.HelpfulLibraries/Docs/MethodProviderLibraries.md)
 - [Middlewares](Lombiq.HelpfulLibraries/Docs/Middlewares.md)
 - [MVC Libraries](Lombiq.HelpfulLibraries/Docs/MvcLibraries.md)
+- [Navigation](Lombiq.HelpfulLibraries/Docs/Navigation.md)
 - [Resource Management Libraries](Lombiq.HelpfulLibraries/Docs/ResourceManagementLibraries.md)
 - [User Libraries](Lombiq.HelpfulLibraries/Docs/UserLibraries.md)
 - [Utilities](Lombiq.HelpfulLibraries/Docs/Utilities.md)
 - [RestEase DI helper](Lombiq.HelpfulLibraries.RestEase/Readme.md)
 - [LinqToDb](Lombiq.HelpfulLibraries.LinqToDb/Readme.md)
+- [Targets](Lombiq.HelpfulLibraries.Targets/Readme.md)
 
 Public APIs are always documented so please always read method comments.
 
+Check out the [`Lombiq.HelpfulLibraries.Samples` project](Lombiq.HelpfulLibraries.Samples) for various examples.
+
+Note: The `Lombiq.HelpfulLibraries.sln` exists to provide centralized building of the independent library projects.
 
 ## Contributing and support
 
